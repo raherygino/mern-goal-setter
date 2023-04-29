@@ -1,9 +1,11 @@
 {
   "name": "mern-login-signup",
   "version": "1.0.0",
-  "description": "",
+  "description": "App login system",
   "main": "server.js",
   "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
