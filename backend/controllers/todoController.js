@@ -12,7 +12,15 @@ const createTodo = asyncHandler(async (req, res) => {
 })
 
 
+const getTodos = asyncHandler(async (req, res) => {
+    const todos = await Todo.find({ user: req.user.id })
+  
+    res.status(200).json(todos)
+  })
+
+
 
 module.exports = {
     createTodo,
+    getTodos,
 }
