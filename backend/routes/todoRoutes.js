@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const {
-  createTodo,
+  createTodo, getTodos,
 } = require('../controllers/todoController')
 
 const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').post(protect, createTodo)
+router.route('/').post(protect, createTodo).get(protect, getTodos)
 
 module.exports = router
