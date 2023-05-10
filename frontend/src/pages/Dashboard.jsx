@@ -24,6 +24,7 @@ function Dashboard() {
       navigate('/login')
     }
 
+
     dispatch(getGoals())
 
     return () => {
@@ -31,6 +32,7 @@ function Dashboard() {
     }
   }, [user, navigate, isError, message, dispatch])
 
+  console.log(isLoading)
   if (isLoading) {
     return <Spinner />
   }
