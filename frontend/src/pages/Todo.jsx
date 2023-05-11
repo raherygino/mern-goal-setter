@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createTodo, getTodos } from "../features/todos/todoSlice"
+import { createTodo, getTodos, deleteTodo } from "../features/todos/todoSlice"
+import { toast } from 'react-toastify'
 
 
 const Todo = () => {
@@ -15,10 +16,11 @@ const Todo = () => {
 
     useEffect(() => {
         if (isError) {
-            console.log(message)
+            toast.error(message)
         }
 
         dispatch(getTodos())
+
 
 
 
@@ -49,9 +51,11 @@ const Todo = () => {
 
                 <button type="submit">Send</button>
             </form>
+            <ul>
             { todos.map((todo) => (
-                <p key={todo._id}>{todo.title}</p>
+                <li key={todo._id}>{todo.title} <button onClick={() => dispatch(deleteTodo(todo._id))}>Delete</button> </li>
             )) }
+            </ul>
         </>
     )
 }
